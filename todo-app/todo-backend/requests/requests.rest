@@ -1,0 +1,17 @@
+### Add ToDo
+POST http://localhost:3000/todos/ HTTP/1.1
+content-type: application/json
+
+{
+    "text": "Test app",
+    "done": true
+}
+
+### Change ToDo
+PUT http://localhost:3000/todos/620937d3a25791b0c37c735e HTTP/1.1
+content-type: application/json
+
+{
+    "text": "Test app",
+    "done": true
+}
