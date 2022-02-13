@@ -1,0 +1,6 @@
+docker start -i sharp_gates 
+apt update
+apt install nano
+nano usr/src/app/index.js 
+console.log('Hello World')
+exit
