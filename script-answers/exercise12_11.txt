@@ -1,0 +1,6 @@
+docker exec -it todo-backend_redis_1 bash
+redis-cli
+KEYS *
+GET toDosAdded
+SET toDosAdded 9001
+GETDEL toDosAdded
