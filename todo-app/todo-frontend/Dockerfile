@@ -1,13 +1,15 @@
-FROM node:16
+FROM node:16 AS base-stage
 
 WORKDIR /usr/src/app
 
 COPY . .
 
-# Change npm ci to npm install since we are going to be in development mode
+FROM base-stage as test-stage
 RUN npm install
+ENV CI=true
+RUN npm run test
 
+FROM base-stage AS build-stage
+RUN npm install
 ENV REACT_APP_BACKEND_URL=http://localhost:3000
-
-# npm start is the command to start the application in development mode
-CMD ["npm", "start"]
+CMD ["npm", "run", "build"]
