@@ -9,5 +9,4 @@ ENV CI=true
 RUN npm run test
 
 FROM base-stage AS build-stage
-ENV REACT_APP_BACKEND_URL=http://localhost:5000
 CMD ["npm", "run", "build"]
