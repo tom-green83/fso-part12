@@ -9,4 +9,7 @@ ENV CI=true
 RUN npm run test
 
 FROM base-stage AS build-stage
-CMD ["npm", "run", "build"]
+ENV REACT_APP_BACKEND_URL=api/
+RUN npm install serve
+RUN npm run build
+CMD ["npx", "serve", "build"]
